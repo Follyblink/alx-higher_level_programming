@@ -1,13 +1,17 @@
 #!/usr/bin/python3
+from sys import argv
+
+
+def main():
+    n = len(argv) - 1
+    print("{:d} argument{}{}".format(n, 's' if n == 0 or n > 1
+                                        else '', '.' if n < 1 else ":"))
+    t = 0
+    for i in argv:
+        if t > 0:
+            print("{:d}: {:s}".format(t, i))
+        t += 1
+
+
 if __name__ == "__main__":
-        from sys import argv
-        total = len(argv)
-        if total <= 1:
-            print("0 arguments.")
-        else:
-            if total == 2:
-                print(f'{(total - 1):d} argument:')
-            else:
-                print(f'{(total - 1):d} arguments:')
-            for i in range(1, total):
-                print(f'{i:d}: {argv[i]:s}')
+    main()
